@@ -30,25 +30,40 @@
       height: 56px;
     }
     .nav-logo {
-      color: #d4edda;
+      color: #fff;
       font-family: 'Noto Serif JP', serif;
       font-size: 14px;
       font-weight: 600;
       text-decoration: none;
       letter-spacing: 0.02em;
+      flex-shrink: 0;
     }
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 20px;
       list-style: none;
+      align-items: center;
     }
     .nav-links a {
-      color: #9ec9a7;
+      color: rgba(255,255,255,0.85);
       font-size: 13px;
       text-decoration: none;
       transition: color 0.2s;
+      white-space: nowrap;
     }
     .nav-links a:hover { color: #fff; }
+    .lang-btn {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 4px;
+      padding: 3px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: 'Noto Sans JP', sans-serif;
+      transition: background 0.2s;
+    }
+    .lang-btn:hover { background: rgba(255,255,255,0.3); }
 
     /* ===== ヒーロー ===== */
     .hero {
@@ -63,7 +78,7 @@
       right: -80px; top: -80px;
       width: 400px; height: 400px;
       border-radius: 50%;
-      border: 60px solid rgba(255,255,255,0.04);
+      border: 60px solid rgba(255,255,255,0.06);
     }
     .hero::after {
       content: '';
@@ -71,13 +86,13 @@
       left: -40px; bottom: -60px;
       width: 240px; height: 240px;
       border-radius: 50%;
-      border: 30px solid rgba(255,255,255,0.03);
+      border: 30px solid rgba(255,255,255,0.04);
     }
     .hero-inner { max-width: 720px; margin: 0 auto; position: relative; }
     .hero-tag {
       display: inline-block;
-      background: rgba(255,255,255,0.12);
-      color: #c8e6c9;
+      background: rgba(255,255,255,0.18);
+      color: #fff;
       font-size: 12px;
       padding: 4px 12px;
       border-radius: 20px;
@@ -93,7 +108,7 @@
       margin-bottom: 1rem;
     }
     .hero p {
-      color: #a8d5b5;
+      color: rgba(255,255,255,0.85);
       font-size: 15px;
       line-height: 1.8;
       max-width: 520px;
@@ -117,18 +132,18 @@
     .btn-primary:hover { opacity: 0.88; }
     .btn-outline {
       background: transparent;
-      color: #c8e6c9;
+      color: #fff;
       font-size: 14px;
       padding: 11px 24px;
       border-radius: 6px;
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 1px solid rgba(255,255,255,0.5);
       cursor: pointer;
       font-family: 'Noto Sans JP', sans-serif;
       text-decoration: none;
       display: inline-block;
-      transition: border-color 0.2s, color 0.2s;
+      transition: border-color 0.2s;
     }
-    .btn-outline:hover { border-color: rgba(255,255,255,0.7); color: #fff; }
+    .btn-outline:hover { border-color: #fff; }
 
     /* ===== セクション共通 ===== */
     section { padding: 4rem 2rem; }
@@ -138,7 +153,7 @@
       align-items: center;
       gap: 8px;
       font-size: 12px;
-      color: #2d6e47;
+      color: #2d9e5f;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 0.6rem;
@@ -147,7 +162,7 @@
       content: '';
       display: block;
       width: 24px; height: 2px;
-      background: #2d6e47;
+      background: #2d9e5f;
       border-radius: 2px;
     }
     .section-title {
@@ -158,15 +173,54 @@
       margin-bottom: 2rem;
     }
 
-    /* ===== 活動紹介 ===== */
-    #activities { background: #fff; }
+    /* ===== 私たちについて ===== */
+    #about { background: #fff; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .about-text p {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+    .about-box {
+      background: #f0faf4;
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid #c8ecd7;
+    }
+    .about-box h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      color: #1a6e3e;
+      margin-bottom: 0.8rem;
+    }
+    .about-box p {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.8;
+    }
+    .about-box a {
+      color: #2d9e5f;
+      text-decoration: none;
+      font-size: 13px;
+      display: inline-block;
+      margin-top: 0.8rem;
+    }
+    .about-box a:hover { text-decoration: underline; }
+
+    /* ===== 活動報告 ===== */
+    #activities { background: #f9f7f4; }
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 16px;
     }
     .card {
-      background: #f9f7f4;
+      background: #fff;
       border-radius: 10px;
       padding: 1.5rem 1.25rem;
       border: 1px solid #e8e4de;
@@ -179,23 +233,14 @@
       font-size: 18px;
       margin-bottom: 1rem;
     }
-    .card h3 {
-      font-size: 15px;
-      font-weight: 500;
-      color: #1a1a1a;
-      margin-bottom: 6px;
-    }
-    .card p {
-      font-size: 13px;
-      color: #666;
-      line-height: 1.7;
-    }
+    .card h3 { font-size: 15px; font-weight: 500; color: #1a1a1a; margin-bottom: 6px; }
+    .card p { font-size: 13px; color: #666; line-height: 1.7; }
 
     /* ===== イベント ===== */
-    #events { background: #f9f7f4; }
+    #events { background: #fff; }
     .events { display: flex; flex-direction: column; gap: 14px; }
     .event {
-      background: #fff;
+      background: #f9f7f4;
       border-radius: 10px;
       border: 1px solid #e8e4de;
       padding: 1.2rem 1.5rem;
@@ -212,7 +257,7 @@
       flex-shrink: 0;
       min-width: 52px;
     }
-    .event-date .month { font-size: 11px; opacity: 0.7; }
+    .event-date .month { font-size: 11px; opacity: 0.8; }
     .event-date .day { font-size: 20px; font-weight: 500; line-height: 1.1; }
     .event-info h4 { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
     .event-info p { font-size: 13px; color: #666; }
@@ -222,9 +267,32 @@
       padding: 2px 8px;
       border-radius: 20px;
       background: #e8f5e9;
-      color: #2d6e47;
+      color: #2d9e5f;
       margin-top: 6px;
     }
+
+    /* ===== SNS・ニュース ===== */
+    #news { background: #f9f7f4; }
+    .sns-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+    }
+    .sns-card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #e8e4de;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      text-decoration: none;
+      color: #1a1a1a;
+      transition: border-color 0.2s;
+      display: block;
+    }
+    .sns-card:hover { border-color: #2d9e5f; }
+    .sns-icon { font-size: 28px; margin-bottom: 8px; }
+    .sns-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .sns-card p { font-size: 12px; color: #888; }
 
     /* ===== お問い合わせ ===== */
     #contact { background: #fff; }
@@ -236,12 +304,7 @@
       max-width: 540px;
     }
     .form-row { margin-bottom: 1rem; }
-    .form-row label {
-      display: block;
-      font-size: 13px;
-      color: #555;
-      margin-bottom: 6px;
-    }
+    .form-row label { display: block; font-size: 13px; color: #555; margin-bottom: 6px; }
     .form-row input,
     .form-row textarea,
     .form-row select {
@@ -257,7 +320,7 @@
       transition: border-color 0.2s;
     }
     .form-row input:focus,
-    .form-row textarea:focus { border-color: #2d6e47; }
+    .form-row textarea:focus { border-color: #2d9e5f; }
     .form-row textarea { resize: vertical; height: 100px; }
     .submit-btn {
       background: #2d9e5f;
@@ -278,27 +341,36 @@
       padding: 2rem;
       text-align: center;
     }
-    footer p { color: #6fa87a; font-size: 12px; }
-    footer a { color: #9ec9a7; text-decoration: none; }
+    footer p { color: rgba(255,255,255,0.75); font-size: 12px; }
+    footer a { color: rgba(255,255,255,0.95); text-decoration: none; }
+
+    /* ===== 言語切替 ===== */
+    body.en .lang-ja { display: none; }
+    body.ja .lang-en { display: none; }
 
     /* ===== レスポンシブ ===== */
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       nav { padding: 0 1rem; }
-      .nav-links { gap: 14px; }
+      .nav-links { gap: 12px; }
+      .nav-links li.hide-sp { display: none; }
       section { padding: 3rem 1rem; }
       .hero { padding: 3rem 1rem 2.5rem; }
+      .about-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-<body>
+<body class="ja">
 
   <!-- ナビゲーション -->
   <nav>
     <a href="#" class="nav-logo">🌿 Japan MAB Youth</a>
     <ul class="nav-links">
-      <li><a href="#activities">活動紹介</a></li>
-      <li><a href="#events">イベント</a></li>
-      <li><a href="#contact">参加する</a></li>
+      <li class="hide-sp"><a href="#about"><span class="lang-ja">私たちについて</span><span class="lang-en">About</span></a></li>
+      <li class="hide-sp"><a href="#activities"><span class="lang-ja">活動報告</span><span class="lang-en">Activities</span></a></li>
+      <li class="hide-sp"><a href="#events"><span class="lang-ja">イベント</span><span class="lang-en">Events</span></a></li>
+      <li class="hide-sp"><a href="#news"><span class="lang-ja">SNS・ニュース</span><span class="lang-en">News</span></a></li>
+      <li class="hide-sp"><a href="#contact"><span class="lang-ja">お問い合わせ</span><span class="lang-en">Contact</span></a></li>
+      <li><button class="lang-btn" onclick="toggleLang()">EN</button></li>
     </ul>
   </nav>
 
@@ -306,38 +378,77 @@
   <div class="hero">
     <div class="hero-inner">
       <div class="hero-tag">UNESCO MAB Programme</div>
-      <h1>人と生物圏のために、<br>若い力を集めよう</h1>
-      <p>
-        日本MABユースは、ユネスコの「人間と生物圏計画（MAB）」に参加する若者のネットワークです。
-        自然と人の共生を次世代がリードします。
-      </p>
+      <h1 class="lang-ja">人と生物圏のために、<br>若い力を集めよう</h1>
+      <h1 class="lang-en">Connecting Youth for<br>People and the Biosphere</h1>
+      <p class="lang-ja">日本MABユースは、ユネスコの「人間と生物圏計画（MAB）」に参加する若者のネットワークです。自然と人の共生を次世代がリードします。</p>
+      <p class="lang-en">Japan MAB Youth is a network of young people participating in UNESCO's Man and the Biosphere Programme. We work to promote harmony between nature and humanity.</p>
       <div class="hero-btns">
-        <a href="#contact" class="btn-primary">メンバー募集中</a>
-        <a href="#activities" class="btn-outline">活動を見る</a>
+        <a href="#contact" class="btn-primary">
+          <span class="lang-ja">メンバー募集中</span>
+          <span class="lang-en">Join Us</span>
+        </a>
+        <a href="#activities" class="btn-outline">
+          <span class="lang-ja">活動を見る</span>
+          <span class="lang-en">Our Activities</span>
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- 活動紹介 -->
+  <!-- 私たちについて -->
+  <section id="about">
+    <div class="inner">
+      <div class="section-label">About</div>
+      <h2 class="section-title lang-ja">私たちについて</h2>
+      <h2 class="section-title lang-en">About Us</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="lang-ja">Japan MAB Youthは、ユネスコの「人間と生物圏計画（MAB: Man and the Biosphere Programme）」を支える若者の組織として、2025年に正式に設立されました。</p>
+          <p class="lang-en">Japan MAB Youth was officially established in 2025 as a youth organization supporting UNESCO's Man and the Biosphere (MAB) Programme in Japan.</p>
+          <p class="lang-ja">私たちは、自然環境の保全と持続可能な発展の両立を目指し、フィールドワーク、国際交流、政策提言など幅広い活動を行っています。</p>
+          <p class="lang-en">We engage in fieldwork, international exchange, and policy advocacy, aiming to achieve both environmental conservation and sustainable development.</p>
+        </div>
+        <div>
+          <div class="about-box">
+            <h3 class="lang-ja">MABプログラムとは</h3>
+            <h3 class="lang-en">What is MAB?</h3>
+            <p class="lang-ja">ユネスコが1971年に開始した政府間科学プログラム。生物圏保護区のネットワークを通じて、人と自然の共生を推進します。</p>
+            <p class="lang-en">An intergovernmental science programme launched by UNESCO in 1971, promoting harmony between people and nature through biosphere reserves.</p>
+            <a href="https://www.mext.go.jp/unesco/009/1387018.htm" target="_blank" class="lang-ja">日本MAB計画支援委員会 →</a>
+            <a href="https://www.unesco.org/en/mab" target="_blank" class="lang-en">UNESCO MAB Programme →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 活動報告 -->
   <section id="activities">
     <div class="inner">
       <div class="section-label">Activities</div>
-      <h2 class="section-title">私たちの活動</h2>
+      <h2 class="section-title lang-ja">活動報告</h2>
+      <h2 class="section-title lang-en">Our Activities</h2>
       <div class="cards">
         <div class="card">
           <div class="card-icon">🌳</div>
-          <h3>自然調査</h3>
-          <p>生物圏保護区でのフィールドワークや調査活動を行います。</p>
+          <h3 class="lang-ja">自然調査</h3>
+          <h3 class="lang-en">Field Research</h3>
+          <p class="lang-ja">生物圏保護区でのフィールドワークや調査活動を行います。</p>
+          <p class="lang-en">We conduct fieldwork and surveys in biosphere reserves across Japan.</p>
         </div>
         <div class="card">
           <div class="card-icon">🌍</div>
-          <h3>国際交流</h3>
-          <p>各国のMABユースとのネットワークを構築し、情報交換を行います。</p>
+          <h3 class="lang-ja">国際交流</h3>
+          <h3 class="lang-en">International Exchange</h3>
+          <p class="lang-ja">各国のMABユースとのネットワークを構築し、情報交換を行います。</p>
+          <p class="lang-en">We build networks with MAB Youth organizations worldwide and share knowledge.</p>
         </div>
         <div class="card">
           <div class="card-icon">📢</div>
-          <h3>アドボカシー</h3>
-          <p>政策への若者の声を届け、持続可能な社会の実現に貢献します。</p>
+          <h3 class="lang-ja">アドボカシー</h3>
+          <h3 class="lang-en">Advocacy</h3>
+          <p class="lang-ja">政策への若者の声を届け、持続可能な社会の実現に貢献します。</p>
+          <p class="lang-en">We amplify youth voices in policy discussions for a sustainable future.</p>
         </div>
       </div>
     </div>
@@ -347,30 +458,68 @@
   <section id="events">
     <div class="inner">
       <div class="section-label">Events</div>
-      <h2 class="section-title">今後のイベント</h2>
+      <h2 class="section-title lang-ja">今後のイベント</h2>
+      <h2 class="section-title lang-en">Upcoming Events</h2>
       <div class="events">
         <div class="event">
           <div class="event-date">
-            <div class="month">5月</div>
+            <div class="month lang-ja">5月</div>
+            <div class="month lang-en">May</div>
             <div class="day">18</div>
           </div>
           <div class="event-info">
-            <h4>キックオフミーティング（オンライン）</h4>
-            <p>設立後初の全体会議。活動方針や今後のスケジュールを話し合います。</p>
-            <span class="event-tag">オンライン</span>
+            <h4 class="lang-ja">キックオフミーティング（オンライン）</h4>
+            <h4 class="lang-en">Kick-off Meeting (Online)</h4>
+            <p class="lang-ja">設立後初の全体会議。活動方針や今後のスケジュールを話し合います。</p>
+            <p class="lang-en">Our first general meeting. We will discuss our mission and upcoming plans.</p>
+            <span class="event-tag lang-ja">オンライン</span>
+            <span class="event-tag lang-en">Online</span>
           </div>
         </div>
         <div class="event">
           <div class="event-date">
-            <div class="month">6月</div>
+            <div class="month lang-ja">6月</div>
+            <div class="month lang-en">Jun</div>
             <div class="day">7</div>
           </div>
           <div class="event-info">
-            <h4>フィールドワーク体験会・白山</h4>
-            <p>白山生物圏保護区での初めての現地調査。参加者募集中です。</p>
-            <span class="event-tag">現地開催</span>
+            <h4 class="lang-ja">フィールドワーク体験会・白山</h4>
+            <h4 class="lang-en">Fieldwork Experience — Mt. Hakusan</h4>
+            <p class="lang-ja">白山生物圏保護区での初めての現地調査。参加者募集中です。</p>
+            <p class="lang-en">Our first field survey at Hakusan Biosphere Reserve. Open for participants!</p>
+            <span class="event-tag lang-ja">現地開催</span>
+            <span class="event-tag lang-en">In-person</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SNS・ニュース -->
+  <section id="news">
+    <div class="inner">
+      <div class="section-label">News</div>
+      <h2 class="section-title lang-ja">SNS・ニュース</h2>
+      <h2 class="section-title lang-en">News & Social Media</h2>
+      <div class="sns-grid">
+        <a href="#" class="sns-card">
+          <div class="sns-icon">📸</div>
+          <h3>Instagram</h3>
+          <p class="lang-ja">活動写真を投稿中</p>
+          <p class="lang-en">Follow our activities</p>
+        </a>
+        <a href="#" class="sns-card">
+          <div class="sns-icon">🐦</div>
+          <h3>X (Twitter)</h3>
+          <p class="lang-ja">最新情報を発信中</p>
+          <p class="lang-en">Latest updates</p>
+        </a>
+        <a href="#" class="sns-card">
+          <div class="sns-icon">▶️</div>
+          <h3>YouTube</h3>
+          <p class="lang-ja">活動動画を公開中</p>
+          <p class="lang-en">Watch our videos</p>
+        </a>
       </div>
     </div>
   </section>
@@ -378,30 +527,38 @@
   <!-- お問い合わせ -->
   <section id="contact">
     <div class="inner">
-      <div class="section-label">Join Us</div>
-      <h2 class="section-title">参加・お問い合わせ</h2>
+      <div class="section-label">Contact</div>
+      <h2 class="section-title lang-ja">参加・お問い合わせ</h2>
+      <h2 class="section-title lang-en">Join Us / Contact</h2>
       <div class="form-wrap">
         <div class="form-row">
-          <label>お名前</label>
-          <input type="text" placeholder="山田 太郎">
+          <label class="lang-ja">お名前</label>
+          <label class="lang-en">Name</label>
+          <input type="text" placeholder="山田 太郎 / Taro Yamada">
         </div>
         <div class="form-row">
-          <label>メールアドレス</label>
+          <label class="lang-ja">メールアドレス</label>
+          <label class="lang-en">Email</label>
           <input type="email" placeholder="example@email.com">
         </div>
         <div class="form-row">
-          <label>お問い合わせ種別</label>
+          <label class="lang-ja">お問い合わせ種別</label>
+          <label class="lang-en">Category</label>
           <select>
-            <option>メンバー登録について</option>
-            <option>イベント参加について</option>
-            <option>その他</option>
+            <option class="lang-ja">メンバー登録について</option>
+            <option class="lang-ja">イベント参加について</option>
+            <option class="lang-ja">その他</option>
           </select>
         </div>
         <div class="form-row">
-          <label>メッセージ</label>
-          <textarea placeholder="ご質問やメッセージをご記入ください。"></textarea>
+          <label class="lang-ja">メッセージ</label>
+          <label class="lang-en">Message</label>
+          <textarea placeholder="ご質問やメッセージをご記入ください。 / Please write your message here."></textarea>
         </div>
-        <button class="submit-btn">送信する</button>
+        <button class="submit-btn">
+          <span class="lang-ja">送信する</span>
+          <span class="lang-en">Send</span>
+        </button>
       </div>
     </div>
   </section>
@@ -410,6 +567,20 @@
   <footer>
     <p>© 2025 Japan MAB Youth — <a href="https://www.unesco.org/en/mab" target="_blank">UNESCO Man and the Biosphere Programme</a></p>
   </footer>
+
+  <script>
+    function toggleLang() {
+      const body = document.body;
+      const btn = document.querySelector('.lang-btn');
+      if (body.classList.contains('ja')) {
+        body.classList.replace('ja', 'en');
+        btn.textContent = 'JA';
+      } else {
+        body.classList.replace('en', 'ja');
+        btn.textContent = 'EN';
+      }
+    }
+  </script>
 
 </body>
 </html>
