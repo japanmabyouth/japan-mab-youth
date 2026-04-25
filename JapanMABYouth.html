@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Japan MAB Youth — ユネスコ人間と生物圏計画</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== リセット & 基本設定 ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #1a1a1a;
+      background: #f9f7f4;
+      line-height: 1.7;
+    }
+
+    /* ===== ナビゲーション ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #1a4a2e;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-logo {
+      color: #d4edda;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #9ec9a7;
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    /* ===== ヒーロー ===== */
+    .hero {
+      background: #1a4a2e;
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      right: -80px; top: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      border: 60px solid rgba(255,255,255,0.04);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: -40px; bottom: -60px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      border: 30px solid rgba(255,255,255,0.03);
+    }
+    .hero-inner { max-width: 720px; margin: 0 auto; position: relative; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      color: #c8e6c9;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.05em;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      color: #fff;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      color: #a8d5b5;
+      font-size: 15px;
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: #fff;
+      color: #1a4a2e;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 11px 24px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Noto Sans JP', sans-serif;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-outline {
+      background: transparent;
+      color: #c8e6c9;
+      font-size: 14px;
+      padding: 11px 24px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      font-family: 'Noto Sans JP', sans-serif;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.7); color: #fff; }
+
+    /* ===== セクション共通 ===== */
+    section { padding: 4rem 2rem; }
+    .inner { max-width: 720px; margin: 0 auto; }
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #2d6e47;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px; height: 2px;
+      background: #2d6e47;
+      border-radius: 2px;
+    }
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 2rem;
+    }
+
+    /* ===== 活動紹介 ===== */
+    #activities { background: #fff; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: #f9f7f4;
+      border-radius: 10px;
+      padding: 1.5rem 1.25rem;
+      border: 1px solid #e8e4de;
+    }
+    .card-icon {
+      width: 40px; height: 40px;
+      background: #e8f5e9;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+    }
+    .card p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* ===== イベント ===== */
+    #events { background: #f9f7f4; }
+    .events { display: flex; flex-direction: column; gap: 14px; }
+    .event {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #e8e4de;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+    .event-date {
+      background: #1a4a2e;
+      color: #fff;
+      border-radius: 8px;
+      padding: 8px 12px;
+      text-align: center;
+      flex-shrink: 0;
+      min-width: 52px;
+    }
+    .event-date .month { font-size: 11px; opacity: 0.7; }
+    .event-date .day { font-size: 20px; font-weight: 500; line-height: 1.1; }
+    .event-info h4 { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+    .event-info p { font-size: 13px; color: #666; }
+    .event-tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: #e8f5e9;
+      color: #2d6e47;
+      margin-top: 6px;
+    }
+
+    /* ===== お問い合わせ ===== */
+    #contact { background: #fff; }
+    .form-wrap {
+      background: #f9f7f4;
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid #e8e4de;
+      max-width: 540px;
+    }
+    .form-row { margin-bottom: 1rem; }
+    .form-row label {
+      display: block;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .form-row input,
+    .form-row textarea,
+    .form-row select {
+      width: 100%;
+      background: #fff;
+      border: 1px solid #d8d4ce;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 14px;
+      color: #1a1a1a;
+      font-family: 'Noto Sans JP', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-row input:focus,
+    .form-row textarea:focus { border-color: #2d6e47; }
+    .form-row textarea { resize: vertical; height: 100px; }
+    .submit-btn {
+      background: #1a4a2e;
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: 'Noto Sans JP', sans-serif;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .submit-btn:hover { opacity: 0.85; }
+
+    /* ===== フッター ===== */
+    footer {
+      background: #1a4a2e;
+      padding: 2rem;
+      text-align: center;
+    }
+    footer p { color: #6fa87a; font-size: 12px; }
+    footer a { color: #9ec9a7; text-decoration: none; }
+
+    /* ===== レスポンシブ ===== */
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 14px; }
+      section { padding: 3rem 1rem; }
+      .hero { padding: 3rem 1rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ナビゲーション -->
+  <nav>
+    <a href="#" class="nav-logo">🌿 Japan MAB Youth</a>
+    <ul class="nav-links">
+      <li><a href="#activities">活動紹介</a></li>
+      <li><a href="#events">イベント</a></li>
+      <li><a href="#contact">参加する</a></li>
+    </ul>
+  </nav>
+
+  <!-- ヒーロー -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">UNESCO MAB Programme</div>
+      <h1>人と生物圏のために、<br>若い力を集めよう</h1>
+      <p>
+        日本MABユースは、ユネスコの「人間と生物圏計画（MAB）」に参加する若者のネットワークです。
+        自然と人の共生を次世代がリードします。
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">メンバー募集中</a>
+        <a href="#activities" class="btn-outline">活動を見る</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 活動紹介 -->
+  <section id="activities">
+    <div class="inner">
+      <div class="section-label">Activities</div>
+      <h2 class="section-title">私たちの活動</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">🌳</div>
+          <h3>自然調査</h3>
+          <p>生物圏保護区でのフィールドワークや調査活動を行います。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌍</div>
+          <h3>国際交流</h3>
+          <p>各国のMABユースとのネットワークを構築し、情報交換を行います。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📢</div>
+          <h3>アドボカシー</h3>
+          <p>政策への若者の声を届け、持続可能な社会の実現に貢献します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- イベント -->
+  <section id="events">
+    <div class="inner">
+      <div class="section-label">Events</div>
+      <h2 class="section-title">今後のイベント</h2>
+      <div class="events">
+        <div class="event">
+          <div class="event-date">
+            <div class="month">5月</div>
+            <div class="day">18</div>
+          </div>
+          <div class="event-info">
+            <h4>キックオフミーティング（オンライン）</h4>
+            <p>設立後初の全体会議。活動方針や今後のスケジュールを話し合います。</p>
+            <span class="event-tag">オンライン</span>
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-date">
+            <div class="month">6月</div>
+            <div class="day">7</div>
+          </div>
+          <div class="event-info">
+            <h4>フィールドワーク体験会・白山</h4>
+            <p>白山生物圏保護区での初めての現地調査。参加者募集中です。</p>
+            <span class="event-tag">現地開催</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section id="contact">
+    <div class="inner">
+      <div class="section-label">Join Us</div>
+      <h2 class="section-title">参加・お問い合わせ</h2>
+      <div class="form-wrap">
+        <div class="form-row">
+          <label>お名前</label>
+          <input type="text" placeholder="山田 太郎">
+        </div>
+        <div class="form-row">
+          <label>メールアドレス</label>
+          <input type="email" placeholder="example@email.com">
+        </div>
+        <div class="form-row">
+          <label>お問い合わせ種別</label>
+          <select>
+            <option>メンバー登録について</option>
+            <option>イベント参加について</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>メッセージ</label>
+          <textarea placeholder="ご質問やメッセージをご記入ください。"></textarea>
+        </div>
+        <button class="submit-btn">送信する</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <p>© 2025 Japan MAB Youth — <a href="https://www.unesco.org/en/mab" target="_blank">UNESCO Man and the Biosphere Programme</a></p>
+  </footer>
+
+</body>
+</html>
