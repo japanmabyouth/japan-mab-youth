@@ -31,6 +31,9 @@
       height: 56px;
     }
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       color: #fff;
       font-family: 'Noto Serif JP', serif;
       font-size: 14px;
@@ -38,6 +41,11 @@
       text-decoration: none;
       letter-spacing: 0.02em;
       flex-shrink: 0;
+    }
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      display: block;
     }
     .lang-btn {
       background: rgba(255,255,255,0.2);
@@ -397,11 +405,14 @@
 </head>
 <body class="ja">
 
-  <!-- ナビゲーション -->
-  <nav>
-    <a href="#" class="nav-logo">日本MABユース</a>
-    <button class="lang-btn" onclick="toggleLang()">EN</button>
-  </nav>
+<!-- ナビゲーション -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="images/logo/Logo_JapanMABYouth_white_transparent.png" alt="Japan MAB Youth">
+    日本MABユース
+  </a>
+  <button class="lang-btn" onclick="toggleLang()">EN</button>
+</nav>
 
   <!-- ヒーロー -->
   <div class="hero">
