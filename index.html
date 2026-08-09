@@ -425,8 +425,6 @@
       <h1 class="lang-en">Uniting Youth for<br>Human and Nature</h1>
       <p class="lang-ja">日本MABユースは、ユネスコの人間と生物圏（MAB）計画に参画する日本の若者のネットワークです。</p>
       <p class="lang-en">Japan MAB Youth is a network of youth participating in UNESCO's Man and the Biosphere (MAB) Programme in Japan.</p>
-  
-      </div>
     </div>
   </div>
 
@@ -492,25 +490,31 @@
         <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=500&auto=format&fit=crop" alt="">
       </div>
 
-      <!-- 注: カテゴリ名は仮ラベルです。分類方針の確定後、data-category と表示ラベルを差し替えてください -->
       <div class="filter-block">
-        <p class="filter-label lang-ja">分類(仮)</p>
-        <p class="filter-label lang-en">Category (tentative)</p>
-        <div class="filter-row" id="filter-category">
-          <button class="chip active" data-filter="category" data-value="all">
+        <p class="filter-label lang-ja">地域</p>
+        <p class="filter-label lang-en">Region</p>
+        <div class="filter-row" id="filter-region">
+          <button class="chip active" data-filter="region" data-value="all">
             <span class="lang-ja">すべて</span><span class="lang-en">All</span>
           </button>
-          <button class="chip" data-filter="category" data-value="forum">
-            <span class="lang-ja">🌐 国際フォーラム・大会</span><span class="lang-en">🌐 Int'l Forums</span>
+          <button class="chip" data-filter="region" data-value="domestic">
+            <span class="lang-ja">🇯🇵 国内</span><span class="lang-en">🇯🇵 Domestic</span>
           </button>
-          <button class="chip" data-filter="category" data-value="brnetwork">
-            <span class="lang-ja">🏞️ エコパーク連携</span><span class="lang-en">🏞️ BR Network</span>
+          <button class="chip" data-filter="region" data-value="international">
+            <span class="lang-ja">🌍 国外</span><span class="lang-en">🌍 International</span>
           </button>
-          <button class="chip" data-filter="category" data-value="learning">
-            <span class="lang-ja">📚 学習・研修</span><span class="lang-en">📚 Learning</span>
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <p class="filter-label lang-ja">ユネスコエコパーク</p>
+        <p class="filter-label lang-en">UNESCO Eco Park</p>
+        <div class="filter-row" id="filter-ecopark">
+          <button class="chip active" data-filter="ecopark" data-value="all">
+            <span class="lang-ja">すべて</span><span class="lang-en">All</span>
           </button>
-          <button class="chip" data-filter="category" data-value="advocacy">
-            <span class="lang-ja">🏛️ 渉外・政策提言</span><span class="lang-en">🏛️ Advocacy</span>
+          <button class="chip" data-filter="ecopark" data-value="yes">
+            <span class="lang-ja">🍃 エコパーク関連</span><span class="lang-en">🍃 Eco Park related</span>
           </button>
         </div>
       </div>
@@ -533,106 +537,10 @@
 
       <div class="cards" id="activity-cards">
 
-        <div class="card" data-category="learning" data-year="2025">
-          <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=300&auto=format&fit=crop" alt="">
-          <div class="card-body">
-            <span class="card-tag lang-ja">📚 学習・研修</span><span class="card-tag lang-en">📚 Learning</span>
-            <span class="card-year">2025.05</span>
-            <h3 class="lang-ja">ウェビナー開催</h3>
-            <h3 class="lang-en">Webinar Session</h3>
-            <p class="lang-ja">MAB計画やユース活動について学ぶオンライン勉強会を開催しました。</p>
-            <p class="lang-en">We held an online webinar to learn about the MAB Programme and youth activities.</p>
-          </div>
-        </div>
-
-        <div class="card" data-category="forum" data-year="2025">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=300&auto=format&fit=crop" alt="">
-          <div class="card-body">
-            <span class="card-tag lang-ja">🌐 国際フォーラム・大会</span><span class="card-tag lang-en">🌐 Int'l Forum</span>
-            <span class="card-year">2025.09</span>
-            <h3 class="lang-ja">第5回世界生物圏保存地域大会(中国・杭州)</h3>
-            <h3 class="lang-en">5th World Congress of Biosphere Reserves (Hangzhou, China)</h3>
-            <p class="lang-ja">世界中の生物圏保護区関係者が集まる大会に参加しました。</p>
-            <p class="lang-en">We participated in the world congress gathering biosphere reserve stakeholders from around the globe.</p>
-          </div>
-        </div>
-
-        <div class="card" data-category="forum" data-year="2025">
-          <img src="https://images.unsplash.com/photo-1516214104703-d870798883c5?q=80&w=300&auto=format&fit=crop" alt="">
-          <div class="card-body">
-            <span class="card-tag lang-ja">🌐 国際フォーラム・大会</span><span class="card-tag lang-en">🌐 Int'l Forum</span>
-            <span class="card-year">2025.10</span>
-            <h3 class="lang-ja">漣川グローバルフォーラム(韓国)</h3>
-            <h3 class="lang-en">Yeoncheon Global Forum (Korea)</h3>
-            <p class="lang-ja">韓国・漣川で開催された国際フォーラムに参加しました。</p>
-            <p class="lang-en">We took part in the international forum held in Yeoncheon, Korea.</p>
-          </div>
-        </div>
-
-        <div class="card" data-category="brnetwork" data-year="2025">
-          <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=300&auto=format&fit=crop" alt="">
-          <div class="card-body">
-            <span class="card-tag lang-ja">🏞️ エコパーク連携</span><span class="card-tag lang-en">🏞️ BR Network</span>
-            <span class="card-year">2025.11</span>
-            <h3 class="lang-ja">甲武信ユネスコエコパーク総会</h3>
-            <h3 class="lang-en">Mt. Kobushi Biosphere Reserve General Assembly</h3>
-            <p class="lang-ja">甲武信ユネスコエコパークの総会に参加しました。</p>
-            <p class="lang-en">We attended the general assembly of the Mt. Kobushi Biosphere Reserve.</p>
-          </div>
-        </div>
-
-        <div class="card" data-category="learning" data-year="2025">
-          <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=300&auto=format&fit=crop" alt="">
-          <div class="card-body">
-            <span class="card-tag lang-ja">📚 学習・研修</span><span class="card-tag lang-en">📚 Learning</span>
-            <span class="card-year">2026.02</span>
-            <h3 class="lang-ja">ユネスコ日本ユースフォーラム</h3>
-            <h3 class="lang-en">UNESCO Japan Youth Forum</h3>
-            <p class="lang-ja">日本国内のユネスコ関連ユース団体が集まるフォーラムに参加しました。</p>
-            <p class="lang-en">We joined a forum bringing together UNESCO-related youth organizations across Japan.</p>
-          </div>
-        </div>
-
-        <div class="card" data-category="brnetwork" data-year="2025">
-          <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=300&auto=format&fit=crop" alt="">
-          <div class="card-body">
-            <span class="card-tag lang-ja">🏞️ エコパーク連携</span><span class="card-tag lang-en">🏞️ BR Network</span>
-            <span class="card-year">2026.02</span>
-            <h3 class="lang-ja">綾ユネスコエコパーク SDGs世代間学習プログラム</h3>
-            <h3 class="lang-en">Aya Biosphere Reserve Intergenerational SDGs Learning Program</h3>
-            <p class="lang-ja">綾ユネスコエコパークで開催された世代間学習プログラムに参加しました。</p>
-            <p class="lang-en">We participated in an intergenerational SDGs learning program at the Aya Biosphere Reserve.</p>
-          </div>
-        </div>
-
-        <div class="card" data-category="brnetwork" data-year="2025">
-          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=300&auto=format&fit=crop" alt="">
-          <div class="card-body">
-            <span class="card-tag lang-ja">🏞️ エコパーク連携</span><span class="card-tag lang-en">🏞️ BR Network</span>
-            <span class="card-year">2026.03</span>
-            <h3 class="lang-ja">白山ユネスコエコパーク 第2回大学間連携シンポジウム</h3>
-            <h3 class="lang-en">Mt. Hakusan Biosphere Reserve 2nd Inter-University Symposium</h3>
-            <p class="lang-ja">白山ユネスコエコパークで開催された大学間連携シンポジウムに参加しました。</p>
-            <p class="lang-en">We took part in the inter-university symposium held at the Mt. Hakusan Biosphere Reserve.</p>
-          </div>
-        </div>
-
-        <div class="card" data-category="forum" data-year="2026">
-          <img src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?q=80&w=300&auto=format&fit=crop" alt="">
-          <div class="card-body">
-            <span class="card-tag lang-ja">🌐 国際フォーラム・大会</span><span class="card-tag lang-en">🌐 Int'l Forum</span>
-            <span class="card-year">2026.05</span>
-            <h3 class="lang-ja">第3回グローバルMABユースフォーラム(イタリア)</h3>
-            <h3 class="lang-en">3rd Global MAB Youth Forum (Po Delta & Colli Euganei, Italy)</h3>
-            <p class="lang-ja">イタリアのデルタポーおよびコッリエウガネイユネスコエコパークで開催されたフォーラムに、日本から3名が参加しました。</p>
-            <p class="lang-en">Three members from Japan participated in the forum held at the Po Delta and Colli Euganei Biosphere Reserves in Italy.</p>
-          </div>
-        </div>
-
-        <div class="card" data-category="advocacy" data-year="2026">
+        <div class="card" data-region="domestic" data-ecopark="no" data-year="2026">
           <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
-            <span class="card-tag lang-ja">🏛️ 渉外・政策提言</span><span class="card-tag lang-en">🏛️ Advocacy</span>
+            <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
             <span class="card-year">2026.07</span>
             <h3 class="lang-ja">グローバルネイチャーポジティブサミット2026(熊本)</h3>
             <h3 class="lang-en">Global Nature Positive Summit 2026 (Kumamoto)</h3>
@@ -641,10 +549,11 @@
           </div>
         </div>
 
-        <div class="card" data-category="brnetwork" data-year="2026">
+        <div class="card" data-region="domestic" data-ecopark="yes" data-year="2026">
           <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
-            <span class="card-tag lang-ja">🏞️ エコパーク連携</span><span class="card-tag lang-en">🏞️ BR Network</span>
+            <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
+            <span class="card-tag lang-ja">🍃 ユネスコエコパーク</span><span class="card-tag lang-en">🍃 UNESCO Eco Park</span>
             <span class="card-year">2026.07</span>
             <h3 class="lang-ja">大台ヶ原・大峯山・大杉谷ユネスコエコパーク総会</h3>
             <h3 class="lang-en">Mount Odaigahara, Mount Omine, and Osugidani Biosphere Reserve General Assembly</h3>
@@ -653,10 +562,11 @@
           </div>
         </div>
 
-        <div class="card" data-category="forum" data-year="2026">
+        <div class="card" data-region="international" data-ecopark="yes" data-year="2026">
           <img src="https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
-            <span class="card-tag lang-ja">🌐 国際フォーラム・大会</span><span class="card-tag lang-en">🌐 Int'l Forum</span>
+            <span class="card-tag lang-ja">🌍 国外</span><span class="card-tag lang-en">🌍 International</span>
+            <span class="card-tag lang-ja">🍃 ユネスコエコパーク</span><span class="card-tag lang-en">🍃 UNESCO Eco Park</span>
             <span class="card-year">2026.07</span>
             <h3 class="lang-ja">韓国MABユースネットワークとの共同済州島プロジェクト</h3>
             <h3 class="lang-en">Joint Jeju Island Project with the Korean MAB Youth Network</h3>
@@ -665,15 +575,116 @@
           </div>
         </div>
 
-        <div class="card" data-category="advocacy" data-year="2026">
+        <div class="card" data-region="domestic" data-ecopark="no" data-year="2026">
           <img src="https://images.unsplash.com/photo-1591951425600-c7d4d47a4a0e?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
-            <span class="card-tag lang-ja">🏛️ 渉外・政策提言</span><span class="card-tag lang-en">🏛️ Advocacy</span>
+            <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
             <span class="card-year">2026.07</span>
             <h3 class="lang-ja">霞ヶ関デー</h3>
             <h3 class="lang-en">Kasumigaseki Day</h3>
             <p class="lang-ja">政府機関が一般に開かれる霞ヶ関デーに参加し、活動を紹介しました。</p>
             <p class="lang-en">We took part in Kasumigaseki Day, when government offices open to the public, to introduce our activities.</p>
+          </div>
+        </div>
+
+        <div class="card" data-region="international" data-ecopark="yes" data-year="2026">
+          <img src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?q=80&w=300&auto=format&fit=crop" alt="">
+          <div class="card-body">
+            <span class="card-tag lang-ja">🌍 国外</span><span class="card-tag lang-en">🌍 International</span>
+            <span class="card-tag lang-ja">🍃 ユネスコエコパーク</span><span class="card-tag lang-en">🍃 UNESCO Eco Park</span>
+            <span class="card-year">2026.05</span>
+            <h3 class="lang-ja">第3回グローバルMABユースフォーラム(イタリア)</h3>
+            <h3 class="lang-en">3rd Global MAB Youth Forum (Po Delta & Colli Euganei, Italy)</h3>
+            <p class="lang-ja">イタリアのデルタポーおよびコッリエウガネイユネスコエコパークで開催されたフォーラムに、日本から3名が参加しました。</p>
+            <p class="lang-en">Three members from Japan participated in the forum held at the Po Delta and Colli Euganei Biosphere Reserves in Italy.</p>
+          </div>
+        </div>
+
+        <div class="card" data-region="domestic" data-ecopark="yes" data-year="2025">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=300&auto=format&fit=crop" alt="">
+          <div class="card-body">
+            <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
+            <span class="card-tag lang-ja">🍃 ユネスコエコパーク</span><span class="card-tag lang-en">🍃 UNESCO Eco Park</span>
+            <span class="card-year">2026.03</span>
+            <h3 class="lang-ja">白山ユネスコエコパーク 第2回大学間連携シンポジウム</h3>
+            <h3 class="lang-en">Mt. Hakusan Biosphere Reserve 2nd Inter-University Symposium</h3>
+            <p class="lang-ja">白山ユネスコエコパークで開催された大学間連携シンポジウムに参加しました。</p>
+            <p class="lang-en">We took part in the inter-university symposium held at the Mt. Hakusan Biosphere Reserve.</p>
+          </div>
+        </div>
+
+        <div class="card" data-region="domestic" data-ecopark="yes" data-year="2025">
+          <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=300&auto=format&fit=crop" alt="">
+          <div class="card-body">
+            <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
+            <span class="card-tag lang-ja">🍃 ユネスコエコパーク</span><span class="card-tag lang-en">🍃 UNESCO Eco Park</span>
+            <span class="card-year">2026.02</span>
+            <h3 class="lang-ja">綾ユネスコエコパーク SDGs世代間学習プログラム</h3>
+            <h3 class="lang-en">Aya Biosphere Reserve Intergenerational SDGs Learning Program</h3>
+            <p class="lang-ja">綾ユネスコエコパークで開催された世代間学習プログラムに参加しました。</p>
+            <p class="lang-en">We participated in an intergenerational SDGs learning program at the Aya Biosphere Reserve.</p>
+          </div>
+        </div>
+
+        <div class="card" data-region="domestic" data-ecopark="no" data-year="2025">
+          <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=300&auto=format&fit=crop" alt="">
+          <div class="card-body">
+            <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
+            <span class="card-year">2026.02</span>
+            <h3 class="lang-ja">ユネスコ日本ユースフォーラム</h3>
+            <h3 class="lang-en">UNESCO Japan Youth Forum</h3>
+            <p class="lang-ja">日本国内のユネスコ関連ユース団体が集まるフォーラムに参加しました。</p>
+            <p class="lang-en">We joined a forum bringing together UNESCO-related youth organizations across Japan.</p>
+          </div>
+        </div>
+
+        <div class="card" data-region="domestic" data-ecopark="yes" data-year="2025">
+          <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=300&auto=format&fit=crop" alt="">
+          <div class="card-body">
+            <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
+            <span class="card-tag lang-ja">🍃 ユネスコエコパーク</span><span class="card-tag lang-en">🍃 UNESCO Eco Park</span>
+            <span class="card-year">2025.11</span>
+            <h3 class="lang-ja">甲武信ユネスコエコパーク総会</h3>
+            <h3 class="lang-en">Mt. Kobushi Biosphere Reserve General Assembly</h3>
+            <p class="lang-ja">甲武信ユネスコエコパークの総会に参加しました。</p>
+            <p class="lang-en">We attended the general assembly of the Mt. Kobushi Biosphere Reserve.</p>
+          </div>
+        </div>
+
+        <div class="card" data-region="international" data-ecopark="no" data-year="2025">
+          <img src="https://images.unsplash.com/photo-1516214104703-d870798883c5?q=80&w=300&auto=format&fit=crop" alt="">
+          <div class="card-body">
+            <span class="card-tag lang-ja">🌍 国外</span><span class="card-tag lang-en">🌍 International</span>
+            <span class="card-year">2025.10</span>
+            <h3 class="lang-ja">漣川グローバルフォーラム(韓国)</h3>
+            <h3 class="lang-en">Yeoncheon Global Forum (Korea)</h3>
+            <p class="lang-ja">韓国・漣川で開催された国際フォーラムに参加しました。</p>
+            <p class="lang-en">We took part in the international forum held in Yeoncheon, Korea.</p>
+          </div>
+        </div>
+
+        <div class="card" data-region="international" data-ecopark="yes" data-year="2025">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=300&auto=format&fit=crop" alt="">
+          <div class="card-body">
+            <span class="card-tag lang-ja">🌍 国外</span><span class="card-tag lang-en">🌍 International</span>
+            <span class="card-tag lang-ja">🍃 ユネスコエコパーク</span><span class="card-tag lang-en">🍃 UNESCO Eco Park</span>
+            <span class="card-year">2025.09</span>
+            <h3 class="lang-ja">第5回世界生物圏保存地域大会(中国・杭州)</h3>
+            <h3 class="lang-en">5th World Congress of Biosphere Reserves (Hangzhou, China)</h3>
+            <p class="lang-ja">世界中の生物圏保護区関係者が集まる大会に参加しました。</p>
+            <p class="lang-en">We participated in the world congress gathering biosphere reserve stakeholders from around the globe.</p>
+          </div>
+        </div>
+
+        <div class="card" data-region="domestic" data-ecopark="no" data-year="2025">
+          <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=300&auto=format&fit=crop" alt="">
+          <div class="card-body">
+            <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
+            <span class="card-year">2025.05</span>
+            <h3 class="lang-ja">ウェビナー開催</h3>
+            <h3 class="lang-en">Webinar Session</h3>
+            <p class="lang-ja">MAB計画やユース活動について学ぶオンライン勉強会を開催しました。</p>
+            <p class="lang-en">We held an online webinar to learn about the MAB Programme and youth activities.</p>
           </div>
         </div>
 
@@ -802,8 +813,8 @@
     }
     tabButtons.forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
 
-    // --- 活動報告: カテゴリ + 年度の絞り込み ---
-    const activeFilters = { category: 'all', year: 'all' };
+    // --- 活動報告: 地域 + エコパーク + 年度の絞り込み ---
+    const activeFilters = { region: 'all', ecopark: 'all', year: 'all' };
     const activityCards = document.querySelectorAll('#activity-cards .card');
     const noResultsJa = document.getElementById('no-results-ja');
     const noResultsEn = document.getElementById('no-results-en');
@@ -811,9 +822,10 @@
     function applyFilters() {
       let visibleCount = 0;
       activityCards.forEach(card => {
-        const matchCat = activeFilters.category === 'all' || card.dataset.category === activeFilters.category;
+        const matchRegion = activeFilters.region === 'all' || card.dataset.region === activeFilters.region;
+        const matchEcopark = activeFilters.ecopark === 'all' || card.dataset.ecopark === 'yes';
         const matchYear = activeFilters.year === 'all' || card.dataset.year === activeFilters.year;
-        const show = matchCat && matchYear;
+        const show = matchRegion && matchEcopark && matchYear;
         card.classList.toggle('is-hidden', !show);
         if (show) visibleCount++;
       });
@@ -829,8 +841,7 @@
         activeFilters[group] = chip.dataset.value;
         applyFilters();
       });
-    });
-  </script>
+    });  </script>
 
 </body>
 </html>
