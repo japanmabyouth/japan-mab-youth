@@ -329,12 +329,22 @@
       line-height: 1.5;
     }
     .detail-photo {
+      position: relative;
       border-radius: 12px;
       overflow: hidden;
       margin-bottom: 1.75rem;
       height: 220px;
     }
-    .detail-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .detail-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+    .detail-photo img.active { opacity: 1; }
     .detail-body p {
       font-size: 14px;
       color: #444;
@@ -765,9 +775,7 @@
       <h2 class="detail-title lang-ja" id="detail-title-ja"></h2>
       <h2 class="detail-title lang-en" id="detail-title-en"></h2>
 
-      <div class="detail-photo">
-        <img id="detail-photo" src="" alt="">
-      </div>
+      <div class="detail-photo" id="detail-photo"></div>
 
       <div class="detail-body lang-ja" id="detail-body-ja"></div>
       <div class="detail-body lang-en" id="detail-body-en"></div>
@@ -928,7 +936,8 @@
       'italy-forum-2026': {
         titleJa: '第3回グローバルMABユースフォーラム（イタリア・デルタポーユネスコエコパーク&コッリエウガネイユネスコエコパーク）',
         titleEn: '3rd Global MAB Youth Forum (Po Delta & Colli Euganei, Italy)',
-        photo: 'https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?q=80&w=900&auto=format&fit=crop',
+        photos: ["images/logo/Logo_JapanMABYouth_white_transparent.png"          
+        ],
         tagsHtml: '<span class="card-tag lang-ja">🌍 国外</span><span class="card-tag lang-en">🌍 International</span><span class="card-tag lang-ja">🍃 ユネスコエコパーク</span><span class="card-tag lang-en">🍃 UNESCO Eco Park</span><span class="card-year">2026.05.18~22</span>',
         bodyJa: `
           <p><strong>概要</strong>2026年5月18日〜22日、イタリアのポーデルタおよびコッリエウガネイユネスコエコパークにて、第3回グローバルMABユースフォーラム「Committed to the Future We Want」が開催されました。88か国・61ユネスコエコパークから参加者138名・ボランティア43名の計181名が集い、日本からは野村氏、門田氏、中村氏の3名が参加しました。</p>
@@ -945,17 +954,44 @@
       }
     };
 
+    let detailSlideTimer = null;
+
     function showDetail(id) {
       const d = activityDetails[id];
       if (!d) return;
 
       document.getElementById('detail-title-ja').textContent = d.titleJa;
       document.getElementById('detail-title-en').textContent = d.titleEn;
-      document.getElementById('detail-photo').src = d.photo;
-      document.getElementById('detail-photo').alt = d.titleJa;
       document.getElementById('detail-tags').innerHTML = d.tagsHtml;
       document.getElementById('detail-body-ja').innerHTML = d.bodyJa;
       document.getElementById('detail-body-en').innerHTML = d.bodyEn;
+
+      // 写真スライドショーの構築
+      const photoWrap = document.getElementById('detail-photo');
+      photoWrap.innerHTML = '';
+      if (detailSlideTimer) {
+        clearInterval(detailSlideTimer);
+        detailSlideTimer = null;
+      }
+
+      const photos = d.photos || [];
+      photos.forEach((src, i) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = d.titleJa;
+        if (i === 0) img.classList.add('active');
+        photoWrap.appendChild(img);
+      });
+
+      if (photos.length > 1) {
+        let slideIndex = 0;
+        const slideImgs = photoWrap.querySelectorAll('img');
+        detailSlideTimer = setInterval(() => {
+          slideImgs[slideIndex].classList.remove('active');
+          slideIndex = (slideIndex + 1) % slideImgs.length;
+          slideImgs[slideIndex].classList.add('active');
+        }, 3500);
+      }
 
       document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
       document.getElementById('panel-detail').classList.add('active');
@@ -964,9 +1000,13 @@
     }
 
     function hideDetail() {
+      if (detailSlideTimer) {
+        clearInterval(detailSlideTimer);
+        detailSlideTimer = null;
+      }
       document.getElementById('tabbar-wrap').style.display = '';
       showTab('activities');
-    }
+    }  
   </script>
 
 </body>
