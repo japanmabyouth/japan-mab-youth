@@ -300,6 +300,54 @@
     }
     .card h3 { font-size: 14.5px; font-weight: 500; color: #1a1a1a; margin-bottom: 4px; line-height: 1.5; }
     .card p { font-size: 12.5px; color: #666; line-height: 1.7; }
+    .card { cursor: pointer; }
+
+    /* ===== 活動詳細 ===== */
+    #panel-detail { background: #fff; }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: none;
+      color: #2d9e5f;
+      font-size: 13.5px;
+      font-weight: 600;
+      font-family: 'Noto Sans JP', sans-serif;
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+    .back-link:hover { text-decoration: underline; }
+    #detail-tags { margin-bottom: 0.8rem; }
+    .detail-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .detail-photo {
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1.75rem;
+      height: 220px;
+    }
+    .detail-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .detail-body p {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.9;
+      margin-bottom: 1.2rem;
+    }
+    .detail-body p strong {
+      display: block;
+      color: #1a6e3e;
+      font-size: 12.5px;
+      letter-spacing: .04em;
+      margin-bottom: 4px;
+    }
     .no-results { text-align: center; color: #888; font-size: 13px; padding: 30px 0; display: none; }
     .no-results.show { display: block; }
     @media (max-width: 480px) {
@@ -437,7 +485,7 @@
   </div>
 
   <!-- タブバー -->
-  <div class="tabbar-wrap">
+  <div class="tabbar-wrap" id="tabbar-wrap">
     <div class="tabbar" id="tabbar">
       <button class="tab-btn active" data-tab="about"><span class="lang-ja">私たちについて</span><span class="lang-en">About</span></button>
       <button class="tab-btn" data-tab="activities"><span class="lang-ja">活動報告</span><span class="lang-en">Activities</span></button>
@@ -587,14 +635,13 @@
           </div>
         </div>        
 
-        <div class="card" data-region="international" data-ecopark="yes" data-year="2026">
+        <div class="card" data-region="international" data-ecopark="yes" data-year="2026" data-id="italy-forum-2026" onclick="showDetail('italy-forum-2026')">
           <img src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🌍 国外</span><span class="card-tag lang-en">🌍 International</span>
             <span class="card-tag lang-ja">🍃 ユネスコエコパーク</span><span class="card-tag lang-en">🍃 UNESCO Eco Park</span>
             <span class="card-year">2026.05.18.22</span>
-            <h3 class="lang-ja">第3回グローバルMABユースフォーラム（イタリア・デルタポーユネスコエコパーク&コッリエウガネイユネスコエコパーク）</h3>
-            <h3 class="lang-en">3rd Global MAB Youth Forum (Po Delta & Colli Euganei, Italy)</h3>
+            <h3 class="lang-ja">第3回グローバルMABユースフォーラム（イタリア・デルタポーユネスコエコパーク&コッリエウガネイユネスコエコパーク）</h3>            <h3 class="lang-en">3rd Global MAB Youth Forum (Po Delta & Colli Euganei, Italy)</h3>
             <p class="lang-ja">イタリアのデルタポーおよびコッリエウガネイユネスコエコパークで開催されたフォーラムに、日本から3名が参加しました。</p>
             <p class="lang-en">Three members from Japan participated in the forum held at the Po Delta and Colli Euganei Biosphere Reserves in Italy.</p>
           </div>
@@ -706,6 +753,27 @@
     </div>
   </section>
 
+  <!-- 活動詳細 -->
+  <section class="panel" id="panel-detail">
+    <div class="inner">
+      <button class="back-link" onclick="hideDetail()">
+        <span class="lang-ja">← 活動報告一覧に戻る</span>
+        <span class="lang-en">← Back to Activities</span>
+      </button>
+
+      <div id="detail-tags"></div>
+      <h2 class="detail-title lang-ja" id="detail-title-ja"></h2>
+      <h2 class="detail-title lang-en" id="detail-title-en"></h2>
+
+      <div class="detail-photo">
+        <img id="detail-photo" src="" alt="">
+      </div>
+
+      <div class="detail-body lang-ja" id="detail-body-ja"></div>
+      <div class="detail-body lang-en" id="detail-body-en"></div>
+    </div>
+  </section>
+  
   <!-- イベント -->
   <section class="panel" id="panel-events">
     <div class="inner">
@@ -853,7 +921,53 @@
         activeFilters[group] = chip.dataset.value;
         applyFilters();
       });
-    });  </script>
+    });
+
+    // --- 活動詳細 ---
+    const activityDetails = {
+      'italy-forum-2026': {
+        titleJa: '第3回グローバルMABユースフォーラム（イタリア・デルタポーユネスコエコパーク&コッリエウガネイユネスコエコパーク）',
+        titleEn: '3rd Global MAB Youth Forum (Po Delta & Colli Euganei, Italy)',
+        photo: 'https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?q=80&w=900&auto=format&fit=crop',
+        tagsHtml: '<span class="card-tag lang-ja">🌍 国外</span><span class="card-tag lang-en">🌍 International</span><span class="card-tag lang-ja">🍃 ユネスコエコパーク</span><span class="card-tag lang-en">🍃 UNESCO Eco Park</span><span class="card-year">2026.05.18~22</span>',
+        bodyJa: `
+          <p><strong>概要</strong>ここに本文を書いてください。</p>
+          <p><strong>背景・目的</strong>ここに本文を書いてください。</p>
+          <p><strong>内容</strong>ここに本文を書いてください。</p>
+          <p><strong>成果・学び</strong>ここに本文を書いてください。</p>
+        `,
+        bodyEn: `
+          <p><strong>Overview</strong>Write here.</p>
+          <p><strong>Background / Purpose</strong>Write here.</p>
+          <p><strong>Details</strong>Write here.</p>
+          <p><strong>Outcomes / Takeaways</strong>Write here.</p>
+        `
+      }
+    };
+
+    function showDetail(id) {
+      const d = activityDetails[id];
+      if (!d) return;
+
+      document.getElementById('detail-title-ja').textContent = d.titleJa;
+      document.getElementById('detail-title-en').textContent = d.titleEn;
+      document.getElementById('detail-photo').src = d.photo;
+      document.getElementById('detail-photo').alt = d.titleJa;
+      document.getElementById('detail-tags').innerHTML = d.tagsHtml;
+      document.getElementById('detail-body-ja').innerHTML = d.bodyJa;
+      document.getElementById('detail-body-en').innerHTML = d.bodyEn;
+
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('panel-detail').classList.add('active');
+      document.getElementById('tabbar-wrap').style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function hideDetail() {
+      document.getElementById('tabbar-wrap').style.display = '';
+      showTab('activities');
+    }
+  </script>
 
 </body>
 </html>
