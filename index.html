@@ -246,6 +246,179 @@
       .about-grid { grid-template-columns: 1fr; }
     }
 
+    /* ===== 私たちについて：追加ブロック（MAB計画の説明／MABユース沿革／日本MABユース／リンク） ===== */
+    .about-block {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #e8e4de;
+    }
+    .about-block h3.block-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+    .about-block h4 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14.5px;
+      color: #1a6e3e;
+      margin: 1.4rem 0 0.5rem;
+    }
+    .about-block h4:first-of-type { margin-top: 0; }
+    .about-block p {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    .about-stats {
+      display: flex;
+      gap: 12px;
+      margin: 1rem 0 1.5rem;
+      flex-wrap: wrap;
+    }
+    .about-stats .stat {
+      flex: 1;
+      min-width: 120px;
+      background: #f9f7f4;
+      border: 1px solid #e8e4de;
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+    }
+    .about-stats .stat .num {
+      display: block;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: #1a6e3e;
+    }
+    .about-stats .stat .label {
+      font-size: 11px;
+      color: #888;
+    }
+
+    .about-diagram {
+      background: #f9f7f4;
+      border: 1px solid #e8e4de;
+      border-radius: 12px;
+      padding: 1.25rem 0.75rem;
+      margin: 1.25rem 0 1.5rem;
+    }
+    .about-diagram-cap {
+      text-align: center;
+      font-size: 11.5px;
+      color: #888;
+      margin-top: 10px;
+    }
+
+    .about-timeline {
+      margin: 1.25rem 0 0.5rem;
+      position: relative;
+      padding-left: 24px;
+    }
+    .about-timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px; top: 4px; bottom: 4px;
+      width: 2px;
+      background: #e8e4de;
+    }
+    .about-timeline .t-item { position: relative; padding-bottom: 20px; }
+    .about-timeline .t-item:last-child { padding-bottom: 0; }
+    .about-timeline .t-item::before {
+      content: '';
+      position: absolute;
+      left: -24px; top: 3px;
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      background: #2d9e5f;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px #2d9e5f;
+    }
+    .about-timeline .t-year {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 600;
+      color: #1a6e3e;
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+    .about-timeline .t-text {
+      font-size: 13.5px;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    .about-photo-ph {
+      background: repeating-linear-gradient(135deg, #f0faf4, #f0faf4 10px, #e8f5ec 10px, #e8f5ec 20px);
+      border: 1px dashed #b9cdbf;
+      border-radius: 12px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7c8a80;
+      font-size: 12.5px;
+      font-weight: 500;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    .about-goal-list {
+      list-style: none;
+      margin: 1rem 0;
+      padding: 0;
+    }
+    .about-goal-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: #333;
+      padding: 8px 0;
+      border-bottom: 1px dashed #e0dcd4;
+    }
+    .about-goal-list li:last-child { border-bottom: none; }
+    .about-goal-list .goal-num {
+      flex: 0 0 auto;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: #2d9e5f;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .about-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 0.75rem;
+    }
+    .about-links .link-item {
+      background: #f9f7f4;
+      border: 1px solid #e8e4de;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .about-links .link-item .arrow { color: #1a6e3e; }
+    .about-links-note { font-size: 11px; color: #999; margin-top: 8px; }
+    @media (max-width: 640px) {
+      .about-links { grid-template-columns: 1fr; }
+    }
+
     /* ===== 活動報告 ===== */
     #panel-activities { background: #f9f7f4; }
     .gallery {
@@ -517,22 +690,154 @@
         <img src="https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?q=80&w=900&auto=format&fit=crop" alt="生物圏保護区でのフィールドワークの様子">
       </div>
 
-      <div class="about-grid">
-        <div class="about-text">
-          <p class="lang-ja">日本MABユースは、ユネスコのMAB計画を支える若者の組織として、2025年に正式に設立されました。</p>
-          <p class="lang-en">Japan MAB Youth was officially established in 2025 as a youth organization supporting UNESCO's Man and the Biosphere (MAB) Programme in Japan.</p>
-          <p class="lang-ja">MABユース活動の持続的な発展を目的に、以下の3つの目標を掲げています。<br>①情報発信による認知度向上<br>②MABユースの拡大と人材育成<br>③国内外のMABユースネットワークの形成</p>
-          <p class="lang-en">To ensure the sustainable development of MAB Youth activities, we pursue three goals:<br>① Raising awareness through information dissemination<br>② Expanding MAB Youth participation and developing human resources<br>③ Building domestic and international MAB Youth networks</p>
+      <!-- ===== ブロック1：ユネスコMAB計画とは ===== -->
+      <div class="about-block">
+        <h3 class="block-title lang-ja">ユネスコMAB計画とは</h3>
+        <h3 class="block-title lang-en">What Is the UNESCO MAB Programme?</h3>
+
+        <h4 class="lang-ja">MAB計画の定義</h4>
+        <h4 class="lang-en">Definition</h4>
+        <p class="lang-ja">ユネスコMAB（人間と生物圏）計画は、自然の恵みを守りながら、それを合理的かつ持続可能に利用していくためのユネスコのプログラムです。日本では「人と自然の共生」と呼ばれ、人間社会と環境の両方を良好な状態に保つために、自然資源を持続可能に管理していく人々の能力を高めることを目指しています。</p>
+        <p class="lang-en">UNESCO's Man and the Biosphere (MAB) Programme supports the rational and sustainable use of nature's resources while protecting them. In Japan it is known as "the coexistence of people and nature," and it aims to strengthen people's capacity to manage natural resources sustainably, keeping both human society and the environment in good condition.</p>
+
+        <h4 class="lang-ja">MAB計画の目的</h4>
+        <h4 class="lang-en">Purpose</h4>
+        <p class="lang-ja">MAB計画の目標は、時代とともにいくつかの戦略文書のなかで言語化されてきました。整理すると、以下の4つのレイヤーとして捉えることができます。</p>
+        <p class="lang-en">The goals of the MAB Programme have been articulated across several strategic documents over time. Together, they can be organized into four layers.</p>
+        <ul class="about-goal-list">
+          <li><span class="goal-num">1</span><span class="lang-ja">生物圏の変化を特定・評価する</span><span class="lang-en">Identify and assess changes in the biosphere</span></li>
+          <li><span class="goal-num">2</span><span class="lang-ja">生態系と社会経済プロセスの相互関係を研究する</span><span class="lang-en">Study the interrelationship between ecosystems and socio-economic processes</span></li>
+          <li><span class="goal-num">3</span><span class="lang-ja">基本的な人間の福祉と暮らしやすい環境を確保する</span><span class="lang-en">Secure basic human wellbeing and a livable environment</span></li>
+          <li><span class="goal-num">4</span><span class="lang-ja">知識の交換・移転を促進する</span><span class="lang-en">Promote the exchange and transfer of knowledge</span></li>
+        </ul>
+
+        <h4 class="lang-ja">MAB計画の実践の場</h4>
+        <h4 class="lang-en">Where It Is Put into Practice</h4>
+        <p class="lang-ja">ユネスコMAB計画は、その理念を実践する場として、各国に生物圏保存地域（ユネスコエコパーク）を設けています。</p>
+        <p class="lang-en">The MAB Programme puts these principles into practice through Biosphere Reserves (UNESCO Eco Parks) designated in countries around the world.</p>
+        <div class="about-stats">
+          <div class="stat"><span class="num">145</span><span class="label lang-ja">カ国</span><span class="label lang-en">Countries</span></div>
+          <div class="stat"><span class="num">797</span><span class="label lang-ja">地域（2026年時点）</span><span class="label lang-en">Sites (as of 2026)</span></div>
         </div>
-        <div>
-          <div class="about-box">
-            <h3 class="lang-ja">MABプログラムとは</h3>
-            <h3 class="lang-en">What is MAB?</h3>
-            <p class="lang-ja">ユネスコが1971年に開始した政府間科学プログラム。生物圏保護区のネットワークを通じて、人と自然の共生を推進します。</p>
-            <p class="lang-en">An intergovernmental science programme launched by UNESCO in 1971, promoting harmony between people and nature through biosphere reserves.</p>
-          </div>
+
+        <!-- 概念図 -->
+        <div class="about-diagram">
+          <svg viewBox="0 0 720 300" width="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect x="235" y="10" width="250" height="52" rx="10" fill="#2d9e5f"/>
+            <text x="360" y="42" text-anchor="middle" fill="#fff" font-family="Noto Serif JP, serif" font-size="15" font-weight="700">ユネスコMAB計画</text>
+            <line x1="360" y1="62" x2="360" y2="86" stroke="#9db8a8" stroke-width="2"/>
+            <polygon points="360,94 354,84 366,84" fill="#9db8a8"/>
+            <g font-family="Noto Sans JP, sans-serif" font-size="12" fill="#25302a">
+              <rect x="20"  y="100" width="160" height="58" rx="8" fill="#eaf5ee" stroke="#d7ead9"/>
+              <text x="100" y="124" text-anchor="middle">生物圏の変化を</text>
+              <text x="100" y="140" text-anchor="middle">特定・評価</text>
+              <rect x="196" y="100" width="160" height="58" rx="8" fill="#eaf5ee" stroke="#d7ead9"/>
+              <text x="276" y="118" text-anchor="middle">生態系と社会経済</text>
+              <text x="276" y="134" text-anchor="middle">プロセスの相互関係</text>
+              <text x="276" y="150" text-anchor="middle">を研究</text>
+              <rect x="372" y="100" width="160" height="58" rx="8" fill="#eaf5ee" stroke="#d7ead9"/>
+              <text x="452" y="118" text-anchor="middle">基本的な人間の福祉と</text>
+              <text x="452" y="134" text-anchor="middle">暮らしやすい環境を</text>
+              <text x="452" y="150" text-anchor="middle">確保</text>
+              <rect x="548" y="100" width="160" height="58" rx="8" fill="#eaf5ee" stroke="#d7ead9"/>
+              <text x="628" y="124" text-anchor="middle">知識の交換・移転</text>
+              <text x="628" y="140" text-anchor="middle">を促進</text>
+            </g>
+            <line x1="100" y1="158" x2="240" y2="196" stroke="#c7dccd" stroke-width="1.5"/>
+            <line x1="276" y1="158" x2="300" y2="196" stroke="#c7dccd" stroke-width="1.5"/>
+            <line x1="452" y1="158" x2="420" y2="196" stroke="#c7dccd" stroke-width="1.5"/>
+            <line x1="628" y1="158" x2="480" y2="196" stroke="#c7dccd" stroke-width="1.5"/>
+            <rect x="210" y="200" width="300" height="66" rx="10" fill="#fff" stroke="#2d9e5f" stroke-width="2"/>
+            <text x="360" y="226" text-anchor="middle" font-family="Noto Serif JP, serif" font-weight="700" font-size="14" fill="#1a6e3e">実践の場：生物圏保存地域</text>
+            <text x="360" y="246" text-anchor="middle" font-size="12" fill="#5b665f">（ユネスコエコパーク）</text>
+            <text x="360" y="260" text-anchor="middle" font-size="11" fill="#8fa198">145カ国 797地域（2026年）</text>
+          </svg>
+          <p class="about-diagram-cap lang-ja">図：ユネスコMAB計画の目的と実践の場（概念図）</p>
+          <p class="about-diagram-cap lang-en">Diagram: The purpose and practice of the UNESCO MAB Programme</p>
         </div>
       </div>
+
+      <!-- ===== ブロック2：ユネスコMABユースとは ===== -->
+      <div class="about-block">
+        <h3 class="block-title lang-ja">ユネスコMABユースとは</h3>
+        <h3 class="block-title lang-en">What Is UNESCO MAB Youth?</h3>
+        <p class="lang-ja">MAB計画は近年、持続可能性と世代間の公平性を推進するうえで、ユース世代の関与を重要な要素として位置づけるようになっています。MABユースは、ユネスコ生物圏保存地域に居住・勤務・就学・ボランティア・研究など何らかの形で関わる18〜35歳の若者を対象としており、この年齢層が国際的なMABユース活動の主な担い手とされています。</p>
+        <p class="lang-en">In recent years, the MAB Programme has increasingly positioned youth engagement as a key element in advancing sustainability and intergenerational equity. MAB Youth refers to young people aged 18–35 who are connected to a UNESCO Biosphere Reserve in some way — as a resident, employee, student, volunteer, or researcher — and this age group forms the core of international MAB Youth activity.</p>
+
+        <div class="about-timeline">
+          <div class="t-item">
+            <div class="t-year">2017</div>
+            <div class="t-text lang-ja">第1回グローバルMABユースフォーラムを開催。以降、各国・各地域でユースネットワークが次々と設立される転換点に。</div>
+            <div class="t-text lang-en">The 1st Global MAB Youth Forum was held, marking a turning point that led to the establishment of youth networks in countries and regions around the world.</div>
+          </div>
+          <div class="t-item">
+            <div class="t-year">2019</div>
+            <div class="t-text lang-ja">生物多様性をテーマに第2回グローバルユースフォーラムを開催し、国際的な流れをさらに強化。</div>
+            <div class="t-text lang-en">The 2nd Global Youth Forum, focused on biodiversity, further strengthened this momentum.</div>
+          </div>
+          <div class="t-item">
+            <div class="t-year lang-ja">2019年以降</div>
+            <div class="t-year lang-en">From 2019</div>
+            <div class="t-text lang-ja">AfriMAB・ArabMAB・EuroMAB・IberoMABなど地域MABネットワークに紐づくユース組織が独自にフォーラムを開催。WNBR（世界生物圏保存地域ネットワーク）への貢献計画の策定や、ユース参画強化のワーキンググループ設置が進む。</div>
+            <div class="t-text lang-en">Youth organizations linked to regional MAB networks — AfriMAB, ArabMAB, EuroMAB, and IberoMAB — began holding their own forums, developing action plans to contribute to the World Network of Biosphere Reserves (WNBR) and setting up working groups to strengthen youth participation.</div>
+          </div>
+          <div class="t-item">
+            <div class="t-year">2022</div>
+            <div class="t-text lang-ja">「ユース参画に関するオープンエンド作業部会」が設置される。</div>
+            <div class="t-text lang-en">An Open-ended Working Group on Youth Engagement was established.</div>
+          </div>
+          <div class="t-item">
+            <div class="t-year">2024</div>
+            <div class="t-text lang-ja">同作業部会の勧告が、MAB計画の国際調整理事会（ICC）で正式に採択される。</div>
+            <div class="t-text lang-en">The Working Group's recommendations were formally adopted by the MAB Programme's International Co-ordinating Council (ICC).</div>
+          </div>
+        </div>
+
+        <div class="about-photo-ph">
+          <span class="lang-ja">［ MABユースの集合写真 ］</span>
+          <span class="lang-en">[ Photo: MAB Youth ]</span>
+        </div>
+      </div>
+
+      <!-- ===== ブロック3：日本MABユースとは ===== -->
+      <div class="about-block">
+        <h3 class="block-title lang-ja">日本MABユースとは</h3>
+        <h3 class="block-title lang-en">What Is Japan MAB Youth?</h3>
+        <p class="lang-ja">日本MABユースは、ユネスコのMAB計画を支える若者の組織として、2025年に正式に設立されました。こうした国際的な潮流を受けて、日本MAB計画支援委員会にユース部会が設置されたことをきっかけに発足しています。MABユース活動の持続的な発展を目的に、以下の3つの目標を掲げています。</p>
+        <p class="lang-en">Japan MAB Youth was officially established in 2025 as a youth organization supporting UNESCO's MAB Programme, following the creation of a Youth Subcommittee within the Japan MAB Programme Support Committee in response to this international trend. To ensure the sustainable development of MAB Youth activities, we pursue three goals.</p>
+
+        <div class="about-box" style="margin: 1rem 0 1.5rem;">
+          <ul class="about-goal-list" style="margin:0;">
+            <li><span class="goal-num">1</span><span class="lang-ja">情報発信による認知度向上</span><span class="lang-en">Raising awareness through information dissemination</span></li>
+            <li><span class="goal-num">2</span><span class="lang-ja">MABユースの拡大と人材育成</span><span class="lang-en">Expanding MAB Youth participation and developing human resources</span></li>
+            <li><span class="goal-num">3</span><span class="lang-ja">国内外のMABユースネットワークの形成</span><span class="lang-en">Building domestic and international MAB Youth networks</span></li>
+          </ul>
+        </div>
+
+        <p class="lang-ja">日本MABユースが掲げるこれらの目標は、グローバルフォーラムを通じた機運の醸成、各国・地域ネットワークの形成、そして国際調整理事会（ICC）による正式なガバナンスへの組み込みという段階を経て制度化されてきた、MABユースという世界的なムーブメントの延長線上に位置づけられます。日本MABユースは、この世界的なネットワークの一員として、国内のユネスコエコパークにおける若者の関与を広げるとともに、国際的な協働を通じて、日本と海外のMABユースをつなぐ役割を担っています。</p>
+        <p class="lang-en">These goals build on a global movement that has been institutionalized in stages — momentum built through global forums, the formation of national and regional networks, and formal incorporation into governance through the International Co-ordinating Council (ICC). As part of this worldwide network, Japan MAB Youth works to broaden youth involvement in Japan's UNESCO Biosphere Reserves, while connecting Japanese and international MAB Youth through global collaboration.</p>
+
+        <div class="about-photo-ph">
+          <span class="lang-ja">［ 日本MABユースの集合写真 ］</span>
+          <span class="lang-en">[ Photo: Japan MAB Youth ]</span>
+        </div>
+      </div>
+
+      <!-- ===== ブロック4：リンク ===== -->
+      <div class="about-block">
+        <h3 class="block-title lang-ja">より詳しい説明はこちら</h3>
+        <h3 class="block-title lang-en">Learn More</h3>
+        <div class="about-links">
+          <div class="link-item"><span class="lang-ja">ユネスコ本部</span><span class="lang-en">UNESCO Headquarters</span><span class="arrow">→</span></div>
+          <div class="link-item"><span class="lang-ja">文部科学省</span><span class="lang-en">MEXT</span><span class="arrow">→</span></div>
+          <div class="link-item"><span class="lang-ja">日本MAB計画支援委員会</span><span class="lang-en">Japan MAB Programme Support Committee</span><span class="arrow">→</span></div>
+          <div class="link-item"><span class="lang-ja">各ユネスコエコパーク等のサイト</span><span class="lang-en">UNESCO Eco Park Websites</span><span class="arrow">→</span></div>
+          <div class="link-item"><span class="lang-ja">政策文書</span><span class="lang-en">Policy Documents</span><span class="arrow">→</span></div>
+        </div>
+        <p class="about-links-note lang-ja">※ 実際のURLを確定後にリンクを設定してください。</p>
+        <p class="about-links-note lang-en">* Links to be added once final URLs are confirmed.</p>
+      </div>
+
     </div>
   </section>
 
@@ -971,7 +1276,6 @@
       document.getElementById('detail-body-ja').innerHTML = d.bodyJa;
       document.getElementById('detail-body-en').innerHTML = d.bodyEn;
 
-      // 写真スライドショーの構築
       const photoWrap = document.getElementById('detail-photo');
       photoWrap.innerHTML = '';
       if (detailSlideTimer) {
