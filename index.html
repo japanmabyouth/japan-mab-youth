@@ -880,6 +880,28 @@
           <button class="chip" data-filter="ecopark" data-value="yes">
             <span class="lang-ja">🍃 ユネスコエコパーク関連</span><span class="lang-en">🍃 Eco Park related</span>
           </button>
+          <button class="chip" data-filter="ecopark" data-value="no">
+            <span class="lang-ja">その他</span><span class="lang-en">Other</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <p class="filter-label lang-ja">活動形態</p>
+        <p class="filter-label lang-en">Activity Type</p>
+        <div class="filter-row" id="filter-format">
+          <button class="chip active" data-filter="format" data-value="all">
+            <span class="lang-ja">すべて</span><span class="lang-en">All</span>
+          </button>
+          <button class="chip" data-filter="format" data-value="host">
+            <span class="lang-ja">開催</span><span class="lang-en">Hosted</span>
+          </button>
+          <button class="chip" data-filter="format" data-value="group">
+            <span class="lang-ja">団体参加</span><span class="lang-en">Group Participation</span>
+          </button>
+          <button class="chip" data-filter="format" data-value="individual">
+            <span class="lang-ja">個人参加</span><span class="lang-en">Individual Participation</span>
+          </button>
         </div>
       </div>
 
@@ -901,7 +923,7 @@
 
       <div class="cards" id="activity-cards">
 
-        <div class="card" data-region="domestic" data-ecopark="no" data-year="2026">
+        <div class="card" data-region="domestic" data-ecopark="no" data-format="group" data-year="2026">
           <img src="https://images.unsplash.com/photo-1591951425600-c7d4d47a4a0e?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
@@ -913,7 +935,7 @@
           </div>
         </div>
 
-        <div class="card" data-region="international" data-ecopark="yes" data-year="2026">
+        <div class="card" data-region="international" data-ecopark="yes" data-format="host" data-year="2026">
           <img src="https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🌍 国外</span><span class="card-tag lang-en">🌍 International</span>
@@ -926,7 +948,7 @@
           </div>
         </div>
 
-        <div class="card" data-region="domestic" data-ecopark="yes" data-year="2026">
+        <div class="card" data-region="domestic" data-ecopark="yes" data-format="group" data-year="2026">
           <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
@@ -939,7 +961,7 @@
           </div>
         </div>
         
-        <div class="card" data-region="domestic" data-ecopark="no" data-year="2026">
+        <div class="card" data-region="domestic" data-ecopark="no" data-format="group" data-year="2026">
           <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
@@ -951,7 +973,7 @@
           </div>
         </div>        
 
-        <div class="card" data-region="international" data-ecopark="yes" data-year="2026" data-id="italy-forum-2026" onclick="showDetail('italy-forum-2026')">
+        <div class="card" data-region="international" data-ecopark="yes" data-format="group" data-year="2026" data-id="italy-forum-2026" onclick="showDetail('italy-forum-2026')">
           <img src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🌍 国外</span><span class="card-tag lang-en">🌍 International</span>
@@ -963,7 +985,7 @@
           </div>
         </div>
 
-        <div class="card" data-region="domestic" data-ecopark="yes" data-year="2025">
+        <div class="card" data-region="domestic" data-ecopark="yes" data-format="group" data-year="2025">
           <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
@@ -976,7 +998,7 @@
           </div>
         </div>
 
-        <div class="card" data-region="domestic" data-ecopark="yes" data-year="2025">
+        <div class="card" data-region="domestic" data-ecopark="yes" data-format="individual" data-year="2025">
           <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
@@ -989,7 +1011,7 @@
           </div>
         </div>
         
-        <div class="card" data-region="domestic" data-ecopark="yes" data-year="2025">
+        <div class="card" data-region="domestic" data-ecopark="yes" data-format="group" data-year="2025">
           <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
@@ -1002,7 +1024,7 @@
           </div>
         </div>
 
-        <div class="card" data-region="domestic" data-ecopark="no" data-year="2025">
+        <div class="card" data-region="domestic" data-ecopark="no" data-format="group" data-year="2025">
           <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
@@ -1014,7 +1036,7 @@
           </div>
         </div>
 
-        <div class="card" data-region="domestic" data-ecopark="yes" data-year="2025">
+        <div class="card" data-region="domestic" data-ecopark="yes" data-format="group" data-year="2025">
           <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
@@ -1027,7 +1049,7 @@
           </div>
         </div>
 
-        <div class="card" data-region="international" data-ecopark="no" data-year="2025">
+        <div class="card" data-region="international" data-ecopark="no" data-format="group" data-year="2025">
           <img src="https://images.unsplash.com/photo-1516214104703-d870798883c5?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🌍 国外</span><span class="card-tag lang-en">🌍 International</span>
@@ -1039,7 +1061,7 @@
           </div>
         </div>
 
-        <div class="card" data-region="international" data-ecopark="yes" data-year="2025">
+        <div class="card" data-region="international" data-ecopark="yes" data-format="group" data-year="2025">
           <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🌍 国外</span><span class="card-tag lang-en">🌍 International</span>
@@ -1051,7 +1073,7 @@
           </div>
         </div>
 
-        <div class="card" data-region="domestic" data-ecopark="no" data-year="2025">
+        <div class="card" data-region="domestic" data-ecopark="no" data-format="host" data-year="2025">
           <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=300&auto=format&fit=crop" alt="">
           <div class="card-body">
             <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
@@ -1208,7 +1230,7 @@
     tabButtons.forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
 
     // --- 活動報告: 地域 + エコパーク + 年度の絞り込み ---
-    const activeFilters = { region: 'all', ecopark: 'all', year: 'all' };
+    const activeFilters = { region: 'all', ecopark: 'all', format: 'all', year: 'all' };
     const activityCards = document.querySelectorAll('#activity-cards .card');
     const noResultsJa = document.getElementById('no-results-ja');
     const noResultsEn = document.getElementById('no-results-en');
@@ -1217,9 +1239,10 @@
       let visibleCount = 0;
       activityCards.forEach(card => {
         const matchRegion = activeFilters.region === 'all' || card.dataset.region === activeFilters.region;
-        const matchEcopark = activeFilters.ecopark === 'all' || card.dataset.ecopark === 'yes';
+        const matchEcopark = activeFilters.ecopark === 'all' || card.dataset.ecopark === activeFilters.ecopark;
+        const matchFormat = activeFilters.format === 'all' || card.dataset.format === activeFilters.format;
         const matchYear = activeFilters.year === 'all' || card.dataset.year === activeFilters.year;
-        const show = matchRegion && matchEcopark && matchYear;
+        const show = matchRegion && matchEcopark && matchFormat && matchYear;
         card.classList.toggle('is-hidden', !show);
         if (show) visibleCount++;
       });
