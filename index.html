@@ -365,6 +365,25 @@
       margin: 1.5rem 0;
       text-align: center;
     }
+    .about-slideshow {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 260px;
+      margin: 1.5rem 0;
+      background: #eee;
+    }
+    .about-slideshow img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+    .about-slideshow img.active { opacity: 1; }
+    
 
     .about-goal-list {
       list-style: none;
@@ -792,9 +811,10 @@
         <p class="lang-ja">日本MABユースが掲げるこれらの目標は、グローバルフォーラムを通じた機運の醸成、各国・地域ネットワークの形成、そして国際調整理事会（ICC）による正式なガバナンスへの組み込みという段階を経て制度化されてきた、MABユースという世界的なムーブメントの延長線上に位置づけられます。日本MABユースは、この世界的なネットワークの一員として、国内のユネスコエコパークにおける若者の関与を広げるとともに、国際的な協働を通じて、日本と海外のMABユースをつなぐ役割を担っています。</p>
         <p class="lang-en">These goals build on a global movement that has been institutionalized in stages — momentum built through global forums, the formation of national and regional networks, and formal incorporation into governance through the International Co-ordinating Council (ICC). As part of this worldwide network, Japan MAB Youth works to broaden youth involvement in Japan's UNESCO Biosphere Reserves, while connecting Japanese and international MAB Youth through global collaboration.</p>
 
-        <div class="about-photo-ph">
-          <span class="lang-ja">［ 日本MABユースの集合写真 ］</span>
-          <span class="lang-en">[ Photo: Japan MAB Youth ]</span>
+        <div class="about-slideshow">
+          <img src="images/about/picture1.jpg" alt="日本MABユースの集合写真" class="active">
+          <img src="images/about/picture2.jpg" alt="日本MABユースの集合写真">
+          <img src="images/about/picture3.jpg" alt="日本MABユースの集合写真">
         </div>
       </div>
 
@@ -1473,6 +1493,17 @@
       document.getElementById('tabbar-wrap').style.display = '';
       showTab('activities');
     }  
+  // --- 私たちについて: 集合写真スライドショー ---
+    document.querySelectorAll('.about-slideshow').forEach(wrap => {
+      const imgs = wrap.querySelectorAll('img');
+      if (imgs.length <= 1) return;
+      let slideIndex = 0;
+      setInterval(() => {
+        imgs[slideIndex].classList.remove('active');
+        slideIndex = (slideIndex + 1) % imgs.length;
+        imgs[slideIndex].classList.add('active');
+      }, 3500);
+    });
   </script>
 
 </body>
