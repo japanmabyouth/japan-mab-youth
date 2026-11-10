@@ -697,7 +697,7 @@
       <button class="tab-btn active" data-tab="about"><span class="lang-ja">私たちについて</span><span class="lang-en">About</span></button>
       <button class="tab-btn" data-tab="activities"><span class="lang-ja">活動報告</span><span class="lang-en">Activities</span></button>
       <button class="tab-btn" data-tab="events"><span class="lang-ja">イベント</span><span class="lang-en">Events</span></button>
-      <button class="tab-btn" data-tab="SNS"><span class="lang-ja">SNS</span><span class="lang-en">News</span></button>
+      <button class="tab-btn" data-tab="news"><span class="lang-ja">SNS</span><span class="lang-en">SNS</span></button>
       <button class="tab-btn" data-tab="contact"><span class="lang-ja">お問い合わせ</span><span class="lang-en">Contact</span></button>
     </div>
   </div>
@@ -1247,7 +1247,7 @@
 
   <!-- フッター -->
   <footer>
-    <p>© 2026 Japan MAB Youth — UNESCO Man and the Biosphere Programme</a></p>
+    <p>© 2026 Japan MAB Youth — UNESCO Man and the Biosphere Programme</p>
   </footer>
 
   <script>
@@ -1532,10 +1532,12 @@
       if (!d) return;
 
       document.getElementById('detail-title-ja').textContent = d.titleJa;
-      document.getElementById('detail-title-en').textContent = d.titleEn;
+      document.getElementById('detail-title-en').textContent = d.titleEn.includes('name (location)') ? d.titleJa : d.titleEn;
       document.getElementById('detail-tags').innerHTML = d.tagsHtml;
       document.getElementById('detail-body-ja').innerHTML = d.bodyJa;
-      document.getElementById('detail-body-en').innerHTML = d.bodyEn;
+      document.getElementById('detail-body-en').innerHTML = d.bodyEn.includes('Write here')
+        ? '<p>The English version of this report is in preparation. Please switch to Japanese (JA) to read the full report.</p>'
+        : d.bodyEn;
 
       const photoWrap = document.getElementById('detail-photo');
       photoWrap.innerHTML = '';
