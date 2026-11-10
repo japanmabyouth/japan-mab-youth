@@ -952,7 +952,7 @@
             <h3 class="lang-ja">チェジュプロジェクト（韓国・済州島ユネスコエコパーク）</h3>
             <h3 class="lang-en">Jeju Project (Jeju Island Biosphere Reserve, Republic of Korea)</h3>
             <p class="lang-ja">済州島ユネスコエコパークで三日間のエコフィールドツアーとセミナーを実施しました。</p>
-            <p class="lang-en">We conducted three-day eco field tours and a seminar at the Jeju Island Biosphere Reserve.</p>
+  <p class="lang-en">We conducted a three-day program of eco field tours and a seminar at the Jeju Island Biosphere Reserve.</p>
           </div>
         </div>
         
@@ -1032,7 +1032,7 @@
             <span class="card-tag lang-ja">🇯🇵 国内</span><span class="card-tag lang-en">🇯🇵 Domestic</span>
             <span class="card-tag lang-ja">🍃 ユネスコエコパーク</span><span class="card-tag lang-en">🍃 Biosphere Reserve</span>
             <span class="card-year">2026.02.26~03.01</span>
-            <h3 class="lang-ja">SDGs世代間学習プログラム（綾ユネスコエコパーク ）</h3>
+            <h3 class="lang-ja">SDGs世代間学習プログラム（綾ユネスコエコパーク）</h3>
             <h3 class="lang-en">Intergenerational SDGs Learning Program (Aya Biosphere Reserve)</h3>
             <p class="lang-ja">綾ユネスコエコパークで開催された世代間学習プログラムに参加しました。</p>
             <p class="lang-en">We participated in the intergenerational learning program held at the Aya Biosphere Reserve.</p>
@@ -1302,37 +1302,34 @@
     }
     tabButtons.forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
 
-    // --- 活動報告: 地域 + エコパーク + 年度の絞り込み ---
-    const activeFilters = { region: 'all', ecopark: 'all', format: 'all', year: 'all' };
-    const activityCards = document.querySelectorAll('#activity-cards .card');
-    const noResultsJa = document.getElementById('no-results-ja');
-    const noResultsEn = document.getElementById('no-results-en');
+    // --- 絞り込み（活動報告・イベント共通。タブごとに独立して動く）---
+    function setupFilters(panelId) {
+      const panel = document.getElementById(panelId);
+      const state = {};
+      const cards = panel.querySelectorAll('.cards .card');
+      const noResults = panel.querySelectorAll('.no-results');
 
-    function applyFilters() {
-      let visibleCount = 0;
-      activityCards.forEach(card => {
-        const matchRegion = activeFilters.region === 'all' || card.dataset.region === activeFilters.region;
-        const matchEcopark = activeFilters.ecopark === 'all' || card.dataset.ecopark === activeFilters.ecopark;
-        const matchFormat = activeFilters.format === 'all' || card.dataset.format === activeFilters.format;
-        const matchYear = activeFilters.year === 'all' || card.dataset.year === activeFilters.year;
-        const show = matchRegion && matchEcopark && matchFormat && matchYear;
-        card.classList.toggle('is-hidden', !show);
-        if (show) visibleCount++;
+      panel.querySelectorAll('.chip').forEach(chip => {
+        state[chip.dataset.filter] = 'all';
+        chip.addEventListener('click', () => {
+          const group = chip.dataset.filter;
+          panel.querySelectorAll('.chip[data-filter="' + group + '"]').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          state[group] = chip.dataset.value;
+
+          let visible = 0;
+          cards.forEach(card => {
+            const show = Object.keys(state).every(g => state[g] === 'all' || card.dataset[g] === state[g]);
+            card.classList.toggle('is-hidden', !show);
+            if (show) visible++;
+          });
+          noResults.forEach(p => p.classList.toggle('show', visible === 0));
+        });
       });
-      noResultsJa.classList.toggle('show', visibleCount === 0);
-      noResultsEn.classList.toggle('show', visibleCount === 0);
     }
-
-    document.querySelectorAll('.chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        const group = chip.dataset.filter;
-        document.querySelectorAll('.chip[data-filter="' + group + '"]').forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        activeFilters[group] = chip.dataset.value;
-        applyFilters();
-      });
-    });
-
+    setupFilters('panel-activities');
+    setupFilters('panel-events');
+    
     // --- 活動詳細 ---
     const activityDetails = {
       'Jeju-project': {
