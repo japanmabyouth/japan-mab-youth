@@ -1126,9 +1126,67 @@
       <div class="section-label">Events</div>
       <h2 class="section-title lang-ja">今後のイベント</h2>
       <h2 class="section-title lang-en">Upcoming Events</h2>
+
+      <div class="filter-block">
+        <p class="filter-label lang-ja">地域</p>
+        <p class="filter-label lang-en">Region</p>
+        <div class="filter-row">
+          <button class="chip active" data-filter="region" data-value="all">
+            <span class="lang-ja">すべて</span><span class="lang-en">All</span>
+          </button>
+          <button class="chip" data-filter="region" data-value="domestic">
+            <span class="lang-ja">🇯🇵 国内</span><span class="lang-en">🇯🇵 Domestic</span>
+          </button>
+          <button class="chip" data-filter="region" data-value="international">
+            <span class="lang-ja">🌍 国外</span><span class="lang-en">🌍 International</span>
+          </button>
+          <button class="chip" data-filter="region" data-value="online">
+            <span class="lang-ja">💻 オンライン</span><span class="lang-en">💻 Online</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <p class="filter-label lang-ja">ユネスコエコパーク</p>
+        <p class="filter-label lang-en">Biosphere Reserve</p>
+        <div class="filter-row">
+          <button class="chip active" data-filter="ecopark" data-value="all">
+            <span class="lang-ja">すべて</span><span class="lang-en">All</span>
+          </button>
+          <button class="chip" data-filter="ecopark" data-value="yes">
+            <span class="lang-ja">🍃 ユネスコエコパーク関連</span><span class="lang-en">🍃 Biosphere Reserve-related</span>
+          </button>
+          <button class="chip" data-filter="ecopark" data-value="no">
+            <span class="lang-ja">その他</span><span class="lang-en">Other</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <p class="filter-label lang-ja">活動形態</p>
+        <p class="filter-label lang-en">Activity Type</p>
+        <div class="filter-row">
+          <button class="chip active" data-filter="format" data-value="all">
+            <span class="lang-ja">すべて</span><span class="lang-en">All</span>
+          </button>
+          <button class="chip" data-filter="format" data-value="host">
+            <span class="lang-ja">開催</span><span class="lang-en">Hosted</span>
+          </button>
+          <button class="chip" data-filter="format" data-value="group">
+            <span class="lang-ja">団体参加</span><span class="lang-en">Group Participation</span>
+          </button>
+          <button class="chip" data-filter="format" data-value="individual">
+            <span class="lang-ja">個人参加</span><span class="lang-en">Individual Participation</span>
+          </button>
+        </div>
+      </div>
+
       <div class="cards">
-        <div class="card" style="cursor: default;">
+        <div class="card" data-region="online" data-ecopark="yes" data-format="host" style="cursor: default;">
           <div class="card-body">
+            <span class="card-tag lang-ja">💻 オンライン</span><span class="card-tag lang-en">💻 Online</span>
+            <span class="card-tag lang-ja">🍃 ユネスコエコパーク</span><span class="card-tag lang-en">🍃 Biosphere Reserve</span>
+            <span class="card-tag lang-ja">開催</span><span class="card-tag lang-en">Hosted</span>
             <span class="card-year">2026.12.01</span>
             <h3 class="lang-ja">日本MABユース キックオフウェビナー</h3>
             <h3 class="lang-en">Japan MAB Youth Kickoff Webinar</h3>
@@ -1137,6 +1195,8 @@
           </div>
         </div>
       </div>
+      <p class="no-results lang-ja">該当するイベントがありません。</p>
+      <p class="no-results lang-en">No events match your filters.</p>
     </div>
   </section>
 
