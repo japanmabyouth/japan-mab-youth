@@ -1329,10 +1329,24 @@
     }
     setupFilters('panel-activities');
     setupFilters('panel-events');
-    
+
+    // --- 活動報告カードに活動形態のタグを自動で表示 ---
+    const formatLabels = {
+      host:       ['開催', 'Hosted'],
+      group:      ['団体参加', 'Group Participation'],
+      individual: ['個人参加', 'Individual Participation']
+    };
+    document.querySelectorAll('#activity-cards .card').forEach(card => {
+      const label = formatLabels[card.dataset.format];
+      const year = card.querySelector('.card-year');
+      if (!label || !year) return;
+      year.insertAdjacentHTML('beforebegin',
+        '<span class="card-tag lang-ja">' + label[0] + '</span>' +
+        '<span class="card-tag lang-en">' + label[1] + '</span>');
+    });
+
     // --- 活動詳細 ---
-    const activityDetails = {
-      'Jeju-project': {
+    const activityDetails = {      'Jeju-project': {
         titleJa: 'チェジュプロジェクト（済州島ユネスコエコパーク）',
         titleEn: 'name (location)',
         photos: [],
